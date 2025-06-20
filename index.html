@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanjay Kumar Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="sections">
+        <div id="home" class="section1">
+            <nav>
+                <div class="navbar">
+                    <div class="nav-left">
+                        <h1><img src="./images/logo.png" alt="Logo" class="nav-logo" id="logoImage">&nbsp;&nbsp;Sanjay
+                            Kumar D</h1>
+                    </div>
+                    <div class="nav-toggle" id="navtoggle" onclick="toggleMenu()">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                    <ul class="nav-right" id="navright">
+                        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                        <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+                        <li><a href="#projects"><i class="fas fa-folder"></i> Projects</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                        <span class="nav-indicator" id="indicator"></span>
+                    </ul>
+
+                </div>
+            </nav>
+            <!-- Modal for Image -->
+            <div class="logo-modal" id="logoModal">
+                <div class="modal-content">
+                    <span class="close-btn" id="closeModal">&times;</span>
+                    <img src="./images/logo.png" alt="Logo Full" class="modal-image" />
+                </div>
+            </div>
+            <div class="home-contant">
+                <div class="home-left">
+                    <h1 class="name">Hi, I'm Sanjay Kumar</h1>
+                    <p class="title">
+                        A passionate&nbsp;<span class="typed-text"></span><span class="cursor">|</span>
+                    <p class="title">creating interactive and responsive applications.</p>
+                    </p>
+                    <div class="social-links">
+                        <a href="#" title="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" title="Email"><i class="fa-regular fa-envelope"></i></a>
+                    </div>
+                    <div>
+                        <a href="#" download class="btn-resume"><i class="fas fa-file-download"></i>Download Resume</a>
+                    </div>
+                </div>
+                <div class="home-right">
+                    <span class="circle1"></span>
+                    <span class="circle2"></span>
+                    <span class="circle3"></span>
+                </div>
+            </div>
+        </div>
+        <div id="about" class="section2">About</div>
+        <div id="skills" class="section3">Skills</div>
+        <div id="projects" class="section4">Projects</div>
+        <div id="contact" class="section5">Contact</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

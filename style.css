@@ -242,11 +242,13 @@ body {
     overflow: hidden;
     padding: 10px;
     position: relative;
+    flex-grow: 1;
 }
 
 .home-contant .home-left {
     display: flex;
     flex-grow: 1;
+    flex-shrink: 200;
     flex-direction: column;
     justify-content: center;
     align-items: center;

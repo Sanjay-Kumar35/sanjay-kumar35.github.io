@@ -56,13 +56,21 @@ function type() {
 }
 
 document.addEventListener("DOMContentLoaded", type);
-
+const body=document.body;
 function toggleMenu() {
     const navToggle = document.getElementById("navtoggle");
     const navRight = document.getElementById("navright");
 
     navRight.classList.toggle("active");
     navToggle.classList.toggle("active");
+
+    
+    if(navToggle.classList.contains("active")){
+        body.classList.add("menu-open");
+    }
+    else{
+        body.classList.remove("menu-open");
+    }
 }
 
 const navLinks = document.querySelectorAll('.nav-right a');
@@ -79,15 +87,23 @@ function moveIndicator(el) {
 
 // Handle click
 navLinks.forEach(link => {
-    link.addEventListener('click', function () {
+ 
+    link.addEventListener('click', function() {
         navLinks.forEach(l => l.classList.remove('active'));
         this.classList.add('active');
         activeLink = this;
         moveIndicator(this);
-
+        body.classList.remove("menu-open");
         // Optional: close mobile menu
         document.getElementById("navright").classList.remove("active");
         document.getElementById("navtoggle").classList.remove("active");
+
+        // e.preventDefault();
+        const linkRect=e.target.getBoundingClientRect();
+        const parentRect=e.target.parentElement.parentElement.getBoundingClientRect();
+
+        indicator.style.left=`${linkRect.left-parentRect.left}px`;
+        indicator.style.width=`${linkRect.width}px`;
     });
 
     link.addEventListener('mouseleave', () => {

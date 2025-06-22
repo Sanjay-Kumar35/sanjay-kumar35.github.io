@@ -65,7 +65,7 @@
         padding: 1px;
         margin: 0px;
         flex-grow: 1;
-        margin-top:-20px
+        margin-top: -20px
     }
 
     .home-left .name {
@@ -83,9 +83,21 @@
         width: 100vw;
         flex-grow: 1;
     }
-    .home-right .circle2,
+
+    .home-right .circle1 {
+        width: 190px;
+        height: 190px;
+    }
+
+    .home-right .circle2 {
+        width: 180px;
+        height: 180px;
+    }
+
     .home-right .circle3 {
-        bottom: 20px;
+        width: 170px;
+        height: 170px;
+
     }
 
     .home-left .social-links {

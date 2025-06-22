@@ -31,7 +31,7 @@ body {
     width: 100vw;
     height: 60px;
     padding-right: 30px;
-    padding-left:20px;
+    padding-left: 20px;
     background-color: var(--accent-color);
     flex-wrap: wrap;
     position: fixed;
@@ -81,6 +81,7 @@ body {
     transition: left 0.3s ease, width 0.3s ease;
     border-radius: 4px;
 }
+
 .nav-right li a {
     position: relative;
     text-decoration: none;
@@ -310,7 +311,7 @@ body {
     border: 2px solid rebeccapurple;
     text-decoration: none;
     margin-top: 20px;
-    color:rebeccapurple;
+    color: rebeccapurple;
 }
 
 .btn-resume .fas {
@@ -327,6 +328,8 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+
+
 }
 
 .home-right .circle1 {
@@ -336,31 +339,14 @@ body {
     height: 250px;
     background-color: #fff;
     border-radius: 50%;
-}
-
-.home-right .circle2 {
-    position: absolute;
-    bottom: 75px;
-    display: flex;
-    width: 240px;
-    height: 240px;
-    background-color: orange;
-    border-radius: 50%;
-}
-
-.home-right .circle3 {
-    position: absolute;
-    bottom: 75px;
-    display: flex;
-    width: 230px;
-    height: 230px;
-    background-color: rebeccapurple;
-    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* Green */
 .section2 {
-    background-color: #3d997000;;
+    background-color: #3d997000;
+    ;
 }
 
 /* Blue */

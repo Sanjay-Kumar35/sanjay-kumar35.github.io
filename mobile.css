@@ -83,10 +83,9 @@
         width: 100vw;
         flex-grow: 1;
     }
-    .home-right .circle1,
     .home-right .circle2,
     .home-right .circle3 {
-        bottom: 40px;
+        bottom: 13%;
     }
 
     .home-left .social-links {

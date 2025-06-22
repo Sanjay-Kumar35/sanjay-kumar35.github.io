@@ -84,6 +84,10 @@
         flex-grow: 1;
     }
 
+    .home-right .circle2,
+    .home-right .circle3{
+        margin-bottom: 12px;
+    }
     .home-right .circle1 {
         width: 190px;
         height: 190px;

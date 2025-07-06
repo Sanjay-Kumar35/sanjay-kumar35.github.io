@@ -11,11 +11,11 @@
     .nav-right {
         flex-direction: column;
         justify-content: center;
-        background-color: var(--accent-color);
+        background-color: var(--background-color);
         position: absolute;
         top: 60px;
-        right: 0;
-        width: 100vw;
+        right: 20px;
+        width: 200px;
         padding-left: 18px;
         gap: 10px;
         font-weight: bold;
@@ -23,13 +23,15 @@
         overflow: hidden;
         opacity: 0;
         padding: 0;
+        border-bottom:2px solid var(--text-color);
+        border-left:2px solid var(--text-color);
+        border-top:2px solid var(--text-color);
+        border-right:2px solid var(--text-color);
     }
-
     .nav-right.active {
         max-height: 500px;
         opacity: 1;
         padding: 10px 0;
-
     }
 
     .nav-left h1 {
@@ -45,10 +47,9 @@
         display: none;
     }
 
-    body.menu-open .home-contant {
+    /* body.menu-open .home-contant {
         margin-top: 250px;
-    }
-
+    } */
     .home-contant {
         flex-direction: row;
         justify-content: center;
@@ -65,11 +66,13 @@
         padding: 1px;
         margin: 0px;
         flex-grow: 1;
-        margin-top: -20px
+        margin-top: -20px;
+        font-size: 14px;
     }
 
     .home-left .name {
-        font-size: 14px;
+        font-size: 15px;
+        font-weight: bold;
     }
 
     .home-left .title {
@@ -82,15 +85,24 @@
         height: 50vh;
         width: 100vw;
         flex-grow: 1;
+        padding-top:50px;
+    }
+    .home-right .circle1{
+        width: 190px;
+        height: 190px;
+    }
+    .home-right .profile{
+        width: 190px;
+        height: 190px;
     }
     .home-left .social-links {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 15px;
-        margin-top: 30px;
+        gap: 25px;
+        margin-top: 25px;
     }
-    .resume-btn {
+    .btn-resume {
         margin-top: 10px;
     }
 }

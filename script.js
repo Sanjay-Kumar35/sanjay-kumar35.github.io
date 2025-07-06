@@ -65,12 +65,12 @@ function toggleMenu() {
     navToggle.classList.toggle("active");
 
     
-    if(navToggle.classList.contains("active")){
-        body.classList.add("menu-open");
-    }
-    else{
-        body.classList.remove("menu-open");
-    }
+    // if(navToggle.classList.contains("active")){
+    //     body.classList.add("menu-open");
+    // }
+    // else{
+    //     body.classList.remove("menu-open");
+    // }
 }
 
 const navLinks = document.querySelectorAll('.nav-right a');

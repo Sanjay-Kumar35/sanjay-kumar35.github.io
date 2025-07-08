@@ -65,12 +65,12 @@ function toggleMenu() {
     navToggle.classList.toggle("active");
 
     
-    // if(navToggle.classList.contains("active")){
-    //     body.classList.add("menu-open");
-    // }
-    // else{
-    //     body.classList.remove("menu-open");
-    // }
+    if(navToggle.classList.contains("active")){
+        body.classList.add("menu-open");
+    }
+    else{
+        body.classList.remove("menu-open");
+    }
 }
 
 const navLinks = document.querySelectorAll('.nav-right a');
@@ -116,7 +116,7 @@ navLinks.forEach(link => {
 });
 
 // Highlight nav link on scroll
-const sections = document.querySelectorAll('.sections > div');
+const sections = document.querySelectorAll('.sections > section');
 
 window.addEventListener('scroll', () => {
     let current = '';
@@ -140,3 +140,15 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+//CArds Animation
+const syncPointer = ({ x: pointerX, y: pointerY }) => {
+  const x = pointerX.toFixed(2)
+  const y = pointerY.toFixed(2)
+  const xp = (pointerX / window.innerWidth).toFixed(2)
+  const yp = (pointerY / window.innerHeight).toFixed(2)
+  document.documentElement.style.setProperty('--x', x)
+  document.documentElement.style.setProperty('--xp', xp)
+  document.documentElement.style.setProperty('--y', y)
+  document.documentElement.style.setProperty('--yp', yp)
+}
+document.body.addEventListener('pointermove', syncPointer)

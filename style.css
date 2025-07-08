@@ -13,6 +13,17 @@
     --secondary-color: #636b2f;
     --accent-color: #7eeb89;
     --text-color: #232515;
+    --x: 0;
+	--y: 0;
+	--xp: 0;
+	--yp: 0;
+	--hue: calc(0 + (var(--xp) * 500));
+	--bg: hsl(0 0% 10%);
+	--size: 100px;
+	--glow: radial-gradient(50% 50% at center,
+			hsl(var(--hue) 80% 85%),
+			hsl(var(--hue) 80% 70%),
+			transparent) calc((var(--x) * 1px) - (var(--size) * 0.5)) calc((var(--y) * 1px) - (var(--size) * 0.5)) / var(--size) var(--size) no-repeat fixed;
 }
 
 body {
@@ -32,7 +43,7 @@ body {
     height: 60px;
     padding-right: 30px;
     padding-left: 20px;
-    background-color:var(--background-color);
+    background-color: var(--background-color);
     flex-wrap: wrap;
     position: fixed;
     cursor: pointer;
@@ -202,8 +213,6 @@ body {
     }
 }
 
-/* sections */
-.section2,
 .section3,
 .section4,
 .section5 {
@@ -221,15 +230,17 @@ body {
 
 /* .section1 { background-color: #3d9970; } Green */
 /* Individual section colors */
+
 .section1 {
     display: flex;
-    background-color: #3d997000;
-    height: 100vh;
+    background-color: transparent;
+    /* height: 100vh; */
     width: 100%;
     display: flex;
     font-weight: bold;
     color: white;
     scroll-snap-align: start;
+    border-bottom: 2px solid var(--text-color);
 }
 
 .home-contant {
@@ -265,6 +276,8 @@ body {
     color: #333;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .typed-text {
@@ -329,6 +342,7 @@ body {
     align-items: center;
     position: relative;
 }
+
 .home-right .circle1 {
     position: absolute;
     display: flex;
@@ -344,10 +358,12 @@ body {
     border-bottom: 4px solid var(--secondary-color);
     transition: transform 0.9s linear;
 }
-.home-right .circle1:hover{
+
+.home-right .circle1:hover {
     transform: rotate(180deg);
 }
-.home-right .profile{
+
+.home-right .profile {
     width: 250px;
     height: 250px;
     border-radius: 50%;
@@ -355,24 +371,136 @@ body {
     object-position: center;
     padding: 5px;
 }
+
 /* Green */
 .section2 {
-    background-color: #ffffff1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+    color: white;
+    background-color: transparent;
+    padding: 100px 0px;
+    border-bottom: 2px solid var(--text-color);
 }
 
-/* Blue */
+.section2 .abt-content {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    background-color: transparent;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.section2 .abt-content .img {
+    width: 30%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.section2 .abt-content .abt-text {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.5rem;
+    text-align: justify;
+    color: var(--text-color);
+}
+
+.abt-text .abt-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+    height: 30%;
+    background-color: transparent;
+    padding-top: 1rem;
+    gap: 20px;
+}
+
+.abt-card .cards {
+    width: 40%;
+    height: auto;
+    flex: 1 0 200px;
+    text-align: center;
+    border-radius: 1rem;
+    background: var(--bg);
+	border: 4px solid transparent;
+	box-shadow: 0 1px hsl(0 0% 100% / 0.15) inset;
+	cursor: pointer;
+	background:
+		linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255)) padding-box,
+		var(--glow),
+		linear-gradient(white, white) border-box;
+	transition: background-size 0.24s;
+	touch-action: none;
+	position: relative;
+	padding: 1rem 2rem;
+}
+.cards::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	box-shadow: 0px 1px hsla(0, 0%, 100%, 0.089) inset;
+	background: white;
+	z-index: 2;
+	border-radius: 1rem;
+}
+.abt-text .abt-card .cards p {
+    background: var(--glow), rgb(255, 255, 255);
+	background-clip: text;
+	color: var(--text-color);
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	position: relative;
+	inset: 0;
+    font-size: 16px;
+}
+:root:has(.cards:active) {
+	--size: 300px;
+}
+/* .cards::after {
+	content: "";
+	position: absolute;
+	inset: -4px;
+	filter: blur(20px);
+	border: 4px solid transparent;
+	background: var(--glow);
+	border-radius: 1rem;
+} */
+.abt-text hr {
+    height: 5px;
+    width: 90px;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    border: none;
+}
+
+.abt-text p i {
+    color: var(--secondary-color);
+}
+/* Cards Animations */
+.controls {
+	position: fixed;
+	top: 2rem;
+	right: 2rem;
+}
+/* 
+/* Blue
 .section3 {
     background-color: #FF851B;
 }
 
-/* Orange */
+Orange
 .section4 {
     background-color: #B10DC9;
 }
 
-/* Purple */
+Purple
 .section5 {
     background-color: #85144b;
-}
-
-/* Maroon */
+}  

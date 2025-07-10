@@ -234,7 +234,7 @@ body {
 .section1 {
     display: flex;
     background-color: transparent;
-    /* height: 100vh; */
+    min-height:100vh;
     width: 100%;
     display: flex;
     font-weight: bold;

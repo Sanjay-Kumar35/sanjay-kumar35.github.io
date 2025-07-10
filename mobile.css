@@ -105,14 +105,15 @@
     }
     .section2{
         height: auto;
+        scroll-snap-align: start;
     }
     .section2 .abt-content .img{
         display: none;
     }
-    .section2 .abt-content h1{
+    .section2 .abt-content .abt-text h1{
         font-size: 16px;
     }
-    .section2 .abt-content p{
+    .section2 .abt-content .abt-card .cards p{
         font-size:14px;
     }
     .section3,.section4,.section5{

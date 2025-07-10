@@ -23,8 +23,9 @@
         overflow: hidden;
         opacity: 0;
         padding: 0;
-        border-bottom:2px solid var(--text-color);
+        border-bottom: 2px solid var(--text-color);
     }
+
     .nav-right.active {
         max-height: 500px;
         opacity: 1;
@@ -48,6 +49,7 @@
     body.menu-open .home-contant {
         margin-top: 250px;
     }
+
     .home-contant {
         flex-direction: row;
         justify-content: center;
@@ -83,16 +85,19 @@
         height: 50vh;
         width: 100vw;
         flex-grow: 1;
-        padding-top:30px;
+        padding-top: 30px;
     }
-    .home-right .circle1{
+
+    .home-right .circle1 {
         width: 190px;
         height: 190px;
     }
-    .home-right .profile{
+
+    .home-right .profile {
         width: 190px;
         height: 190px;
     }
+
     .home-left .social-links {
         display: flex;
         justify-content: center;
@@ -100,23 +105,43 @@
         gap: 25px;
         margin-top: 25px;
     }
+
     .btn-resume {
         margin-top: 10px;
     }
-    .section2{
+
+    .section2 {
         height: auto;
         scroll-snap-align: start;
+        position: relative;
     }
-    .section2 .abt-content .img{
+
+    .section2::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        background-color: transparent;
+        z-index: 10;
+    }
+
+    .section2 .abt-content .img {
         display: none;
     }
-    .section2 .abt-content .abt-text h1{
+
+    .section2 .abt-content .abt-text h1 {
         font-size: 16px;
     }
-    .section2 .abt-content .abt-card .cards p{
-        font-size:14px;
+
+    .section2 .abt-content .abt-card .card p {
+        font-size: 14px;
     }
-    .section3,.section4,.section5{
+
+    .section3,
+    .section4,
+    .section5 {
         height: auto;
     }
 }

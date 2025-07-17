@@ -202,8 +202,9 @@
         }
     }
 .section3 .cards .card-j .progress .inner img{
-    width: 65px;
-    height: 65px;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
     z-index: -2;
 }
     .section3,

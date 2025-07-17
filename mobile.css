@@ -144,20 +144,17 @@
         height: auto;
     }
 
-    .section3 .languages .lan1 {
+    .section3 .languages .lan-title {
+        display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 11px;
     }
 
     .sk-head {
-        font-size: 14px;
+        font-size: 16px;
+        align-items: flex-start;
     }
-
-    .lan-title {
-        font-size: 12px;
-        font-weight: normal;
-    }
-
     .section3 .cards {
         flex-direction: column;
         align-items: center;
@@ -204,7 +201,11 @@
             transform: translateY(0px) scale(1);
         }
     }
-
+.section3 .cards .card-j .progress .inner img{
+    width: 65px;
+    height: 65px;
+    z-index: -2;
+}
     .section3,
     .section4,
     .section5 {

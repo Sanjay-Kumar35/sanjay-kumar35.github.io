@@ -233,12 +233,9 @@ body {
 .section1 {
     display: flex;
     background-color: transparent;
-<<<<<<< HEAD
     min-height: 100vh;
     height: auto;
-=======
     min-height:100vh;
->>>>>>> f89db66a8977d6a8dfa3b770fd417fc0b04401ba
     width: 100%;
     font-weight: bold;
     color: white;
@@ -547,7 +544,6 @@ body {
     align-items: center;
 }
 
-<<<<<<< HEAD
 .sk-head hr {
     height: 5px;
     width: 50px;
@@ -680,9 +676,3 @@ svg {
         stroke-dashoffset: var(--i);
     }
 }
-=======
-Purple
-.section5 {
-    background-color: #85144b;
-}  
->>>>>>> f89db66a8977d6a8dfa3b770fd417fc0b04401ba

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sanjay Kumar Portfolio</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;400&display=swap"
         rel="stylesheet">
@@ -20,7 +20,7 @@
             <nav>
                 <div class="navbar">
                     <div class="nav-left">
-                        <h1><img src="./images/logo.png" alt="Logo" class="nav-logo" id="logoImage">&nbsp;&nbsp;Sanjay
+                        <h1><img src="./assets/logo.png" alt="Logo" class="nav-logo" id="logoImage">&nbsp;&nbsp;Sanjay
                             Kumar D</h1>
                     </div>
                     <div class="nav-toggle" id="navtoggle" onclick="toggleMenu()">
@@ -43,7 +43,7 @@
             <div class="logo-modal" id="logoModal">
                 <div class="modal-content">
                     <span class="close-btn" id="closeModal">&times;</span>
-                    <img src="./images/logo.png" alt="Logo Full" class="modal-image" />
+                    <img src="./assets/logo.png" alt="Logo Full" class="modal-image" />
                 </div>
             </div>
             <div class="home-contant">
@@ -64,18 +64,21 @@
                 </div>
                 <div class="home-right">
                     <span class="circle1"></span>
-                    <img src="images/dsk.png" class="profile" />
+                    <img src="assets/dsk.png" class="profile" />
                 </div>
             </div>
         </section>
         <section id="about" class="section2">
             <div class="abt-content">
-                <img src="images/logo.png" alt="logo" class="img">
-                <div class="abt-text">
-                    <h1>About Me</h1>
-                    <hr>
-                    <div class="abt-card">
-                        <div class="card">
+                <img src="assets/logo.png" alt="logo" class="img">
+                <div class="abt-text ">
+                    <div class="showUp">
+                        <h1>About Me</h1>
+                        <hr>
+                    </div>
+
+                    <div class="abt-card ">
+                        <div class="card cardShow">
                             <p>
                                 <i class="fas fa-lightbulb"></i>
                                 I'm a self-driven web and app developer with a passion for learning new technologies and
@@ -83,22 +86,22 @@
                                 real world problems through code.
                             </p>
                         </div>
-                        <div class="card">
+                        <div class="card cardShow">
                             <p><i class="fas fa-graduation-cap"></i> B.Sc in Computer Science at Sacred Heart
                                 College (Autonomous) -(2022 - 2025) <strong>CGPA :</strong>8.1 (Completed).</p>
                         </div>
-                        <div class="card">
+                        <div class="card cardShow">
                             <p><i class="fas fa-code"></i> Proficient in HTML, CSS, Java Script, Flutter,
                                 Firebase. Experienced in building responsive web and mobile application.</p>
                         </div>
-                        <div class="card">
+                        <div class="card cardShow">
                             <p><i class="fas fa-rocket"></i> Completed projects including a Code Enigma
                                 app, Portfolio site.</p>
                         </div>
-                        <div class="card">
+                        <div class="card cardShow">
                             <p><i class="fas fa-trophy"></i> I won 3rd Prize in Code Blaster.</p>
                         </div>
-                        <div class="card">
+                        <div class="card cardShow">
                             <p><i class="fas fa-certificate"></i> Certified in Java Course - Mastering the
                                 Fundamentals from SCALER.</p>
                         </div>
@@ -106,7 +109,398 @@
                 </div>
             </div>
         </section>
-        <section id="skills" class="section3">Skills</section>
+        <section id="skills" class="section3">
+            <div class="sk-head showUp">
+                <div class="showUp"><h2>Skills</h2>
+                <hr>
+            </div>
+            </div>
+            <div class="languages">
+                <div class="lan1">
+                    <div class="lan-title showUp">
+                        <h2>Programming Languages</h2>
+                    </div>
+                    <div class="cards">
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/java.png" alt="Java">
+                                        <div id="lang">
+                                            Java
+                                            <br>&nbsp;<span id="number">70%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:141" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/python.png" alt="Python">
+                                        <div id="lang">
+                                            Python
+                                            <br>&nbsp;&nbsp;&nbsp;<span id="number">75%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:118" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/dart.png" alt="Dart">
+                                        <div id="lang">
+                                            Dart
+                                            <br>&nbsp;<span id="number">70%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:141" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/c.png" alt="C">
+                                        <div id="lang">&nbsp; C
+                                            <br><span id="number">67%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:115" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="lan2">
+                    <div class="lan-title showUp">
+                        <h2>Web Development</h2>
+                    </div>
+                    <div class="cards">
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/html.png" alt="HTML">
+                                        <div id="lang">
+                                            HTML
+                                            <br>&nbsp;&nbsp;<span id="number">80%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:95" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/css.png" alt="CSS">
+                                        <div id="lang">
+                                            CSS
+                                            <br>&nbsp;<span id="number">77%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:108" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/js.png" alt="JS">
+                                        <div id="lang">
+                                            JavaScript
+                                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="number">69%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:146" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="lan3">
+                    <div class="lan-title showUp">
+                        <h2>DataBase & Framework</h2>
+                    </div>
+                    <div class="cards">
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/sql.png" alt="SQL">
+                                        <div id="lang">
+                                            SQL
+                                            <br>&nbsp;<span id="number">80%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:95" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/firebase.png" alt="Firebase">
+                                        <div id="lang">
+                                            Firebase
+                                            <br>&nbsp;&nbsp;&nbsp;&nbsp;<span id="number">60%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:188" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/flutter.png" alt="Flutter">
+                                        <div id="lang">
+                                            Flutter
+                                            <br>&nbsp;&nbsp;<span id="number">60%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:188" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="lan4">
+                    <div class="lan-title showUp">
+                        <h2>Tools & UI/UX Design</h2>
+                    </div>
+                    <div class="cards">
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/vscode.png" alt="Vscode">
+                                        <div id="lang">
+                                            VS Code
+                                            <br>&nbsp;&nbsp;&nbsp;&nbsp;<span id="number">75%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:118" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/canva.png" alt="canva">
+                                        <div id="lang">
+                                            Canva
+                                            <br>&nbsp;&nbsp;&nbsp;<span id="number">60%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:188" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/firebase.png" alt="Firebase">
+                                        <div id="lang">
+                                            Firebase
+                                            <br>&nbsp;&nbsp;&nbsp;&nbsp;<span id="number">60%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:188" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/word.png" alt="word">
+                                        <div id="lang">
+                                            MS Word
+                                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="number">80%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:95" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/excel.png" alt="excel">
+                                        <div id="lang">
+                                            MS Excel
+                                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="number">60%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:188" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-j showUp">
+                            <div class="progress">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <img src="./assets/ppt.png" alt="ppt">
+                                        <div id="lang">
+                                            MS PowerPoint
+                                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="number">85%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                    <defs>
+                                        <linearGradient id="GradientColor">
+                                            <stop offset="0%" stop-color="#636b2f" />
+                                            <stop offset="100%" stop-color="#232515" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="80" cy="80" r="70" stroke-linecap="round" style="--i:70" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
         <section id="projects" class="section4">Projects</section>
         <section id="contact" class="section5">Contact</section>
     </div>

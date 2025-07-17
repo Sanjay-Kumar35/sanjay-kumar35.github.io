@@ -152,7 +152,7 @@
     }
 
     .sk-head {
-        font-size: 16px;
+        font-size: 14px;
         align-items: flex-start;
     }
     .section3 .cards {
@@ -193,7 +193,7 @@
     @keyframes fadeUp {
         from {
             opacity: 0.5;
-            transform: translateY(5px) scale(0.7);
+            transform: translateY(4px) scale(0.7);
         }
 
         to {

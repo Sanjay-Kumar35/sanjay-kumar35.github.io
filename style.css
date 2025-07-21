@@ -797,12 +797,12 @@ svg {
     font-weight: bold;
 }
 .section4 .view-picture{
-     position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(8px);

@@ -226,7 +226,7 @@
         padding: 4px 3px;
     }
    .slider-wrapper .image-list{
-    width: 300px;
+    width: 100%;
     height: 500px;
    }
    .container .slider-scrollbar .scrollbar-thumb{

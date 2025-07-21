@@ -56,7 +56,7 @@ function type() {
 }
 
 document.addEventListener("DOMContentLoaded", type);
-const body=document.body;
+const body = document.body;
 function toggleMenu() {
     const navToggle = document.getElementById("navtoggle");
     const navRight = document.getElementById("navright");
@@ -64,11 +64,11 @@ function toggleMenu() {
     navRight.classList.toggle("active");
     navToggle.classList.toggle("active");
 
-    
-    if(navToggle.classList.contains("active")){
+
+    if (navToggle.classList.contains("active")) {
         body.classList.add("menu-open");
     }
-    else{
+    else {
         body.classList.remove("menu-open");
     }
 }
@@ -87,8 +87,8 @@ function moveIndicator(el) {
 
 // Handle click
 navLinks.forEach(link => {
- 
-    link.addEventListener('click', function() {
+
+    link.addEventListener('click', function () {
         navLinks.forEach(l => l.classList.remove('active'));
         this.classList.add('active');
         activeLink = this;
@@ -99,11 +99,11 @@ navLinks.forEach(link => {
         document.getElementById("navtoggle").classList.remove("active");
 
         // e.preventDefault();
-        const linkRect=e.target.getBoundingClientRect();
-        const parentRect=e.target.parentElement.parentElement.getBoundingClientRect();
+        const linkRect = e.target.getBoundingClientRect();
+        const parentRect = e.target.parentElement.parentElement.getBoundingClientRect();
 
-        indicator.style.left=`${linkRect.left-parentRect.left}px`;
-        indicator.style.width=`${linkRect.width}px`;
+        indicator.style.left = `${linkRect.left - parentRect.left}px`;
+        indicator.style.width = `${linkRect.width}px`;
     });
 
     link.addEventListener('mouseleave', () => {
@@ -142,14 +142,85 @@ window.addEventListener('scroll', () => {
 });
 //CArds Animation
 const syncPointer = ({ x: pointerX, y: pointerY }) => {
-  const x = pointerX.toFixed(2)
-  const y = pointerY.toFixed(2)
-  const xp = (pointerX / window.innerWidth).toFixed(2)
-  const yp = (pointerY / window.innerHeight).toFixed(2)
-  document.documentElement.style.setProperty('--x', x)
-  document.documentElement.style.setProperty('--xp', xp)
-  document.documentElement.style.setProperty('--y', y)
-  document.documentElement.style.setProperty('--yp', yp)
+    const x = pointerX.toFixed(2)
+    const y = pointerY.toFixed(2)
+    const xp = (pointerX / window.innerWidth).toFixed(2)
+    const yp = (pointerY / window.innerHeight).toFixed(2)
+    document.documentElement.style.setProperty('--x', x)
+    document.documentElement.style.setProperty('--xp', xp)
+    document.documentElement.style.setProperty('--y', y)
+    document.documentElement.style.setProperty('--yp', yp)
 }
 document.body.addEventListener('pointermove', syncPointer)
 
+//project section for view Image
+const btnImg = document.getElementById('btn-img');
+const viewImg = document.getElementById('view-picture');
+const closeImg = document.getElementById('close-img');
+
+btnImg.addEventListener("click", () => {
+    viewImg.style.display = "flex";
+});
+closeImg.addEventListener('click', () => {
+    viewImg.style.display = 'none';
+});
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+//scroll x
+const initSlider = () => {
+    const imagelist = document.querySelector(".image-list");
+    const slideButtons = document.querySelectorAll(".slide-button");
+    const sliderScrollbar = document.querySelector(".slider-scrollbar");
+    const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
+    const maxScrollLeft = imagelist.scrollWidth - imagelist.clientWidth;
+
+    scrollbarThumb.addEventListener("mousedown", (e) => {
+        const startX = e.clientX;
+        const thumbPosition = scrollbarThumb.offsetLeft;
+
+        const handleMouseMove = (e) => {
+            const deltaX = e.clientX - startX;
+            const newThumbPosition = thumbPosition + deltaX;
+            const maxThumbPosition=sliderScrollbar.getBoundingClientRect().width-scrollbarThumb.offsetWidth;
+            const boundedPosition=Math.max(0,Math.min(maxThumbPosition,newThumbPosition));
+            const scrollPosition=(boundedPosition/maxThumbPosition)*maxScrollLeft;
+
+            scrollbarThumb.style.left = `${boundedPosition}px`;
+            imagelist.scrollLeft=scrollPosition;
+
+        }
+        const handleMouseUp=()=>{
+             document.removeEventListener("mousemove", handleMouseMove);
+            document.removeEventListener("mouseup", handleMouseUp);
+        }
+        document.addEventListener("mousemove", handleMouseMove);
+        document.addEventListener("mouseup", handleMouseUp);
+    });
+
+    slideButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const direction = button.id === "prev-slide" ? -1 : 1;
+            const scrollAmount = imagelist.clientWidth * direction;
+            imagelist.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        });
+    });
+    const handleSlideButtons = () => {
+        slideButtons[0].style.display = imagelist.scrollLeft <= 0 ? "none" : "block";
+        slideButtons[1].style.display = imagelist.scrollLeft >= maxScrollLeft ? "none" : "block";
+    }
+    const updateScrollThumbPosition = () => {
+        const scrollPosition = imagelist.scrollLeft;
+        const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
+        scrollbarThumb.style.left = `${thumbPosition}px`;
+    }
+    imagelist.addEventListener("scroll", () => {
+        handleSlideButtons();
+        updateScrollThumbPosition();
+    });
+}
+
+window.addEventListener("load", initSlider)

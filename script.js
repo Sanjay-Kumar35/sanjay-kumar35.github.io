@@ -158,16 +158,16 @@ const btnImg = document.getElementById('btn-img');
 const viewImg = document.getElementById('view-picture');
 const closeImg = document.getElementById('close-img');
 
-btnImg.addEventListener("click", () => {
-    viewImg.style.display = "flex";
-});
-closeImg.addEventListener('click', () => {
-    viewImg.style.display = 'none';
-});
+const showImages =()=>(viewImg.style.display='flex',viewImg.style.visibility='visible');
+
+const hideImages =()=>(viewImg.style.display='none');
+
+btnImg.addEventListener("click", showImages);
+
+closeImg.addEventListener('click', hideImages);
 window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-    }
+    if (e.target === viewImg) 
+        hideImages();
 });
 
 //scroll x

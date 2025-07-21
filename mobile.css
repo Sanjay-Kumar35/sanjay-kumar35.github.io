@@ -209,7 +209,9 @@
         object-fit: contain;
         z-index: -2;
     }
-
+      .section4{
+        font-weight: normal;
+      }
     .section4 .pro-container {
         width: auto;
         flex-direction: column;

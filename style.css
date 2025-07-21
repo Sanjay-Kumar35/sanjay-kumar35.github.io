@@ -324,7 +324,7 @@ body {
     font-size: 20px;
 }
 
-.btn-resume:hover {
+.btn-resume:hover ,.pro-buttons p:hover{
     transform: scale(1.02);
 }
 
@@ -445,6 +445,7 @@ body {
 .social-links,
 .btn-resume,
 nav,
+.pro-buttons p,
 .card {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
@@ -717,7 +718,7 @@ svg {
 }
 
 .section4 .pro-container .pro1 {
-    width: clamp(90%, 70%, 30%);
+    width: clamp(100%, 70%, 30%);
     height: auto;
     background-color: white;
     padding: 20px 13px;

@@ -212,6 +212,16 @@
       .section4{
         font-weight: normal;
       }
+     .section4 .pro-container .pro1 {
+        width: 300px;
+        height: auto;
+     }
+      .section4 .pro-container .pro1 .pro-buttons p{
+        font-size: 11px;
+      }
+      .section4 .pro-container .pro1 .pro-buttons i{
+        font-size: 15px;
+      }
     .section4 .pro-container {
         width: auto;
         flex-direction: column;
@@ -231,8 +241,8 @@
     width: 100%;
     height: 500px;
    }
-   .container .slider-scrollbar .scrollbar-thumb{
-    width: 20%;
+   .container .slider-scrollbar{
+    display: none;
    }
     .close-btn-img{
         top:20px;

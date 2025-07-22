@@ -161,7 +161,7 @@ const imageSets = {
         "assets/Project-image/codee-img/Picture2.png",
         "assets/Project-image/codee-img/Picture3.png",
         "assets/Project-image/codee-img/Picture4.png",
-        "assets/Project-image/codee-img/Picture5.png",
+        "assets/Project-image/codee-img/Picture5.png"
     ],
     search: [
         "assets/Project-image/codee-img/Picture3.png",

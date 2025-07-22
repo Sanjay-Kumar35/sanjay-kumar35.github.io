@@ -154,19 +154,67 @@ const syncPointer = ({ x: pointerX, y: pointerY }) => {
 document.body.addEventListener('pointermove', syncPointer)
 
 //project section for view Image
-const btnImg = document.getElementById('btn-img');
+
+const imageSets = {
+    codee: [
+        "assets/Project-image/codee-img/Picture1.png",
+        "assets/Project-image/codee-img/Picture2.png",
+        "assets/Project-image/codee-img/Picture3.png",
+        "assets/Project-image/codee-img/Picture4.png",
+        "assets/Project-image/codee-img/Picture5.png",
+    ],
+    search: [
+        "assets/Project-image/codee-img/Picture3.png",
+        "assets/Project-image/codee-img/Picture4.png",
+        "assets/Project-image/codee-img/Picture5.png",
+        "assets/Project-image/codee-img/Picture3.png",
+        "assets/Project-image/codee-img/Picture4.png",
+        "assets/Project-image/codee-img/Picture5.png"
+    ],
+    login: [
+        "assets/Project-Image/login-img/Image1.png",
+        "assets/Project-Image/login-img/Image2.png",
+        "assets/Project-Image/login-img/Image1.png",
+        "assets/Project-Image/login-img/Image2.png",
+        "assets/Project-Image/login-img/Image1.png",
+        "assets/Project-Image/login-img/Image2.png"
+    ]
+}
+
 const viewImg = document.getElementById('view-picture');
 const closeImg = document.getElementById('close-img');
+const imageList = viewImg.querySelector('.image-list');
+const picHead = document.querySelector('.pic-head');
 
-const showImages =()=>(viewImg.style.display='flex',viewImg.style.visibility='visible');
 
-const hideImages =()=>(viewImg.style.display='none');
+const showImages = () => (viewImg.style.display = 'flex', viewImg.style.visibility = 'visible');
 
-btnImg.addEventListener("click", showImages);
+const hideImages = () => (viewImg.style.display = 'none');
+
+function loadImages(images, title, galleryClass) {
+    imageList.innerHTML = images.map(src => `<img src="${src}" alt="" class="${galleryClass}" >`).join("");
+    picHead.textContent = title;
+    initSlider(); // re-initialize slider after loading
+}
+
+document.querySelectorAll('.btn-img').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const key = btn.dataset.set;  // codee / search / login
+        const title = btn.dataset.title;
+        let galleryClass = "";
+        if (key === "codee") galleryClass = "gallery1";
+        else if (key === "search") galleryClass = "gallery2";
+        else if (key === "login") galleryClass = "gallery3";
+        if (imageSets[key]) {
+            loadImages(imageSets[key], title, galleryClass);
+            showImages();
+        }
+    });
+});
 
 closeImg.addEventListener('click', hideImages);
 window.addEventListener('click', (e) => {
-    if (e.target === viewImg) 
+    if (e.target === viewImg)
         hideImages();
 });
 
@@ -185,16 +233,16 @@ const initSlider = () => {
         const handleMouseMove = (e) => {
             const deltaX = e.clientX - startX;
             const newThumbPosition = thumbPosition + deltaX;
-            const maxThumbPosition=sliderScrollbar.getBoundingClientRect().width-scrollbarThumb.offsetWidth;
-            const boundedPosition=Math.max(0,Math.min(maxThumbPosition,newThumbPosition));
-            const scrollPosition=(boundedPosition/maxThumbPosition)*maxScrollLeft;
+            const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
+            const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
+            const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
 
             scrollbarThumb.style.left = `${boundedPosition}px`;
-            imagelist.scrollLeft=scrollPosition;
+            imagelist.scrollLeft = scrollPosition;
 
         }
-        const handleMouseUp=()=>{
-             document.removeEventListener("mousemove", handleMouseMove);
+        const handleMouseUp = () => {
+            document.removeEventListener("mousemove", handleMouseMove);
             document.removeEventListener("mouseup", handleMouseUp);
         }
         document.addEventListener("mousemove", handleMouseMove);

@@ -396,6 +396,8 @@ body {
     display: flex;
     width: 30%;
     height: auto;
+    object-fit: contain;
+    object-position: center;
     min-height: 470px;
     border-radius: 10px;
 }
@@ -780,7 +782,7 @@ svg {
     margin-top: 15px;
 }
 
-.section4 .pro-container .pro1 .pro-buttons p {
+.section4 .pro-container .pro1 .pro-buttons p,#btn-img {
     width: 30%;
     color: var(--secondary-color);
     text-decoration: none;
@@ -789,10 +791,18 @@ svg {
     padding: 8px 5px;
     font-size: 13px;
     border-radius: 25px;
+    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+.section4 .pro-container .pro1 .pro-buttons a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+.section4 .pro-container .pro1 .pro-buttons a:active{
+    color: var(--secondary-color);
 }
 .section4 .pro-container .pro1 .pro-buttons i {
     color: var(--text-color);
@@ -858,11 +868,21 @@ svg {
 .slider-wrapper .image-list::-webkit-scrollbar{
     display: none;
 }
-.slider-wrapper .image-list .image-item{
-    width: 300px;
-    height: 500px;
+.image-list img{
     object-fit: contain;
     margin-bottom: 30px;
+}
+.image-list img.gallery1{
+    width: 300px;
+    height: 500px;
+}
+.image-list img.gallery2{
+    width: 400px;
+    height: 500px;
+}
+.image-list img.gallery3{
+    width: 600px;
+    height: 500px;
 }
 .container .slider-scrollbar{
     height: 24px;

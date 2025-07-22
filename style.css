@@ -870,11 +870,11 @@ svg {
     background: #444;
 }
 
-.slider-wrapper .slide-button .prev-slide {
+.slider-wrapper .prev-slide {
     left: -20px !important;
 }
 
-.slider-wrapper .slide-button .next-slide {
+.slider-wrapper .next-slide {
     right: -20px !important;
 }
 
@@ -890,11 +890,22 @@ svg {
     display: none;
 }
 
-.image-list img {
-    width: 300px;
-    height: 500px;
+.image-list img{
     object-fit: contain;
     margin-bottom: 30px;
+}
+.gallery1{
+    width: 300px;
+    height: 500px;
+}
+.gallery2{
+    width: 400px;
+    height: 500px;
+}
+.gallery3{
+    width: 1000px;
+    height: 500px;
+    margin-right: 10px;
 }
 
 .container .slider-scrollbar {

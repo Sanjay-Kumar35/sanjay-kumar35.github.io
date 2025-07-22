@@ -154,162 +154,171 @@ const syncPointer = ({ x: pointerX, y: pointerY }) => {
 document.body.addEventListener('pointermove', syncPointer)
 
 //project section for view Image
-/* ---------------- Image Sources ---------------- */
+
 const imageSets = {
-  codee: [
-    "assets/Project-Image/codee-img/Picture1.png",
-    "assets/Project-Image/codee-img/Picture2.png",
-    "assets/Project-Image/codee-img/Picture3.png",
-    "assets/Project-Image/codee-img/Picture4.png",
-    "assets/Project-Image/codee-img/Picture5.png"
-  ],
-  search: [
-    "assets/Project-Image/codee-img/Picture3.png",
-    "assets/Project-Image/codee-img/Picture4.png",
-    "assets/Project-Image/codee-img/Picture5.png",
-    "assets/Project-Image/codee-img/Picture3.png",
-    "assets/Project-Image/codee-img/Picture4.png",
-    "assets/Project-Image/codee-img/Picture5.png"
-  ],
-  login: [
-    "assets/Project-Image/login-img/Image1.png",
-    "assets/Project-Image/login-img/Image2.png",
-    "assets/Project-Image/login-img/Image1.png",
-    "assets/Project-Image/login-img/Image2.png",
-    "assets/Project-Image/login-img/Image1.png",
-    "assets/Project-Image/login-img/Image2.png"
-  ]
+    codee: [
+        "assets/Project-Image/codee-img/Picture1.png",
+        "assets/Project-Image/codee-img/Picture2.png",
+        "assets/Project-Image/codee-img/Picture3.png",
+        "assets/Project-Image/codee-img/Picture4.png",
+        "assets/Project-Image/codee-img/Picture5.png",
+        "assets/Project-Image/codee-img/Picture6.png",
+        "assets/Project-Image/codee-img/Picture7.png",
+        "assets/Project-Image/codee-img/Picture8.png",
+        "assets/Project-Image/codee-img/Picture9.png",
+        "assets/Project-Image/codee-img/Picture10.png",
+        "assets/Project-Image/codee-img/Picture11.png",
+        "assets/Project-Image/codee-img/Picture12.png",
+        "assets/Project-Image/codee-img/Picture13.png",
+        "assets/Project-Image/codee-img/Picture14.png",
+        "assets/Project-Image/codee-img/Picture15.png",
+        "assets/Project-Image/codee-img/Picture16.png",
+        "assets/Project-Image/codee-img/Picture17.png",
+        "assets/Project-Image/codee-img/Picture18.png",
+        "assets/Project-Image/codee-img/Picture19.png",
+        "assets/Project-Image/codee-img/Picture20.png",
+    ],
+    search: [
+        "assets/Project-Image/codee-img/Picture3.png",
+        "assets/Project-Image/codee-img/Picture4.png",
+        "assets/Project-Image/codee-img/Picture5.png",
+        "assets/Project-Image/codee-img/Picture3.png",
+        "assets/Project-Image/codee-img/Picture4.png",
+        "assets/Project-Image/codee-img/Picture5.png"
+    ],
+    login: [
+        "assets/Project-Image/login-img/Image1.png",
+        "assets/Project-Image/login-img/Image2.png",
+        "assets/Project-Image/login-img/Image1.png",
+        "assets/Project-Image/login-img/Image2.png",
+        "assets/Project-Image/login-img/Image1.png",
+        "assets/Project-Image/login-img/Image2.png"
+    ]
 };
 
-/* =========================================================
-   Utility: Populate a gallery's .image-list with <img> tags
-   ========================================================= */
-function populateGalleryImages(galleryEl, images) {
-  const imageList = galleryEl.querySelector('.image-list');
-  imageList.innerHTML = images.map(src => `<img src="${src}" alt="">`).join('');
+function populateGalleryImages(galleryEl, images, galleryClass = "") {
+    const imageList = galleryEl.querySelector('.image-list');
+    imageList.innerHTML = images.map(src => `<img src="${src}" alt="" class="${galleryClass}">`).join('');
 }
 
-/* =========================================================
-   Slider setup for ONE gallery element
-   - Adds events (once)
-   - Exposes a reset() function to recalc + sync
-   ========================================================= */
 function makeGallerySlider(galleryEl) {
-  const imageList = galleryEl.querySelector('.image-list');
-  const prevBtn = galleryEl.querySelector('.prev-slide');
-  const nextBtn = galleryEl.querySelector('.next-slide');
-  const sliderScrollbar = galleryEl.querySelector('.slider-scrollbar');
-  const scrollbarThumb = sliderScrollbar.querySelector('.scrollbar-thumb');
+    const imageList = galleryEl.querySelector('.image-list');
+    const prevBtn = galleryEl.querySelector('.prev-slide');
+    const nextBtn = galleryEl.querySelector('.next-slide');
+    const sliderScrollbar = galleryEl.querySelector('.slider-scrollbar');
+    const scrollbarThumb = sliderScrollbar.querySelector('.scrollbar-thumb');
 
-  const getMaxScrollLeft = () => imageList.scrollWidth - imageList.clientWidth;
-  const getMaxThumbLeft = () => sliderScrollbar.offsetWidth - scrollbarThumb.offsetWidth;
+    const getMaxScrollLeft = () => imageList.scrollWidth - imageList.clientWidth;
+    const getMaxThumbLeft = () => sliderScrollbar.offsetWidth - scrollbarThumb.offsetWidth;
 
-  function syncThumbToScroll() {
-    const ratio = imageList.scrollLeft / getMaxScrollLeft();
-    scrollbarThumb.style.left = `${ratio * getMaxThumbLeft()}px`;
-    prevBtn.style.display = imageList.scrollLeft <= 0 ? 'none' : 'block';
-    nextBtn.style.display = imageList.scrollLeft >= getMaxScrollLeft() ? 'none' : 'block';
-  }
-
-  // Scroll by one image
-  function scrollOneImage(direction) {
-    const images = imageList.querySelectorAll('img');
-    if (images.length === 0) return;
-
-    // Find the index of the first fully visible image
-    let currentIndex = 0;
-    const currentScroll = imageList.scrollLeft;
-    for (let i = 0; i < images.length; i++) {
-      if (images[i].offsetLeft >= currentScroll - 2) {
-        currentIndex = i;
-        break;
-      }
+    function syncThumbToScroll() {
+        const ratio = imageList.scrollLeft / getMaxScrollLeft();
+        scrollbarThumb.style.left = `${ratio * getMaxThumbLeft()}px`;
+        prevBtn.style.display = imageList.scrollLeft <= 0 ? 'none' : 'block';
+        nextBtn.style.display = imageList.scrollLeft >= getMaxScrollLeft() ? 'none' : 'block';
     }
 
-    // Calculate next index and scroll
-    const newIndex = currentIndex + direction;
-    if (newIndex >= 0 && newIndex < images.length) {
-      imageList.scrollTo({ left: images[newIndex].offsetLeft, behavior: 'smooth' });
+    // Scroll by one image
+    function scrollOneImage(direction) {
+        const images = imageList.querySelectorAll('img');
+        if (images.length === 0) return;
+
+        // Find the index of the first fully visible image
+        let currentIndex = 0;
+        const currentScroll = imageList.scrollLeft;
+        for (let i = 0; i < images.length; i++) {
+            if (images[i].offsetLeft >= currentScroll - 2) {
+                currentIndex = i;
+                break;
+            }
+        }
+
+        // Calculate next index and scroll
+        const newIndex = currentIndex + direction;
+        if (newIndex >= 0 && newIndex < images.length) {
+            imageList.scrollTo({ left: images[newIndex].offsetLeft, behavior: 'smooth' });
+        }
     }
-  }
 
-  // Button click
-  prevBtn.onclick = () => scrollOneImage(-1);
-  nextBtn.onclick = () => scrollOneImage(1);
+    // Button click
+    prevBtn.onclick = () => scrollOneImage(-1);
+    nextBtn.onclick = () => scrollOneImage(1);
 
-  // Scrollbar thumb drag
-  scrollbarThumb.onmousedown = (e) => {
-    const startX = e.clientX;
-    const thumbStart = scrollbarThumb.offsetLeft;
-    function onMove(e) {
-      const delta = e.clientX - startX;
-      const newPos = Math.max(0, Math.min(getMaxThumbLeft(), thumbStart + delta));
-      scrollbarThumb.style.left = `${newPos}px`;
-      imageList.scrollLeft = (newPos / getMaxThumbLeft()) * getMaxScrollLeft();
-    }
-    function onUp() {
-      document.removeEventListener('mousemove', onMove);
-      document.removeEventListener('mouseup', onUp);
-    }
-    document.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseup', onUp);
-  };
+    // Scrollbar thumb drag
+    scrollbarThumb.onmousedown = (e) => {
+        const startX = e.clientX;
+        const thumbStart = scrollbarThumb.offsetLeft;
+        function onMove(e) {
+            const delta = e.clientX - startX;
+            const newPos = Math.max(0, Math.min(getMaxThumbLeft(), thumbStart + delta));
+            scrollbarThumb.style.left = `${newPos}px`;
+            imageList.scrollLeft = (newPos / getMaxThumbLeft()) * getMaxScrollLeft();
+        }
+        function onUp() {
+            document.removeEventListener('mousemove', onMove);
+            document.removeEventListener('mouseup', onUp);
+        }
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+    };
 
-  imageList.onscroll = syncThumbToScroll;
-  syncThumbToScroll();
+    imageList.onscroll = syncThumbToScroll;
+    syncThumbToScroll();
 
-  return { reset: () => { imageList.scrollLeft = 0; syncThumbToScroll(); } };
+    return { reset: () => { imageList.scrollLeft = 0; syncThumbToScroll(); } };
 }
 
-/* =========================================================
-   Build slider objects for each gallery once (after DOM ready)
-   ========================================================= */
 const galleryIds = ['codee', 'search', 'login'];
 const gallerySliders = {}; // key -> {el, sliderObj}
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  galleryIds.forEach(key => {
-    const galleryEl = document.getElementById('view-picture-' + key);
-    if (!galleryEl) return;
-    gallerySliders[key] = {
-      el: galleryEl,
-      slider: makeGallerySlider(galleryEl)
-    };
-  });
-
-  /* ---- Open (Pictures) buttons inside project cards ---- */
-  document.querySelectorAll('.btn-img').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const key = btn.dataset.gallery;
-      const g = gallerySliders[key];
-      if (!g) return;
-      // load images
-      populateGalleryImages(g.el, imageSets[key] || []);
-      // reset slider metrics & thumb
-      g.slider.reset();
-      // show
-      g.el.style.display = 'flex';
-      g.el.style.visibility = 'visible';
+    galleryIds.forEach(key => {
+        const galleryEl = document.getElementById('view-picture-' + key);
+        if (!galleryEl) return;
+        gallerySliders[key] = {
+            el: galleryEl,
+            slider: makeGallerySlider(galleryEl)
+        };
     });
-  });
 
-  /* ---- Close icons ---- */
-  document.querySelectorAll('.close-img').forEach(closeBtn => {
-    closeBtn.addEventListener('click', () => {
-      const key = closeBtn.dataset.close;
-      const g = gallerySliders[key];
-      if (g) g.el.style.display = 'none';
-    });
-  });
+    /* ---- Open (Pictures) buttons inside project cards ---- */
+    document.querySelectorAll('.btn-img').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const key = btn.dataset.gallery;
+            const g = gallerySliders[key];
+            if (!g) return;
+            // load images
+            let galleryClass = "";
+            if (key === "codee") galleryClass = "gallery1";
+            else if (key === "search") galleryClass = "gallery2";
+            else if (key === "login") galleryClass = "gallery3";
 
-  /* ---- Click outside to close ---- */
-  document.querySelectorAll('.view-picture').forEach(galleryEl => {
-    galleryEl.addEventListener('click', e => {
-      // only close if click backdrop, not inner content
-      if (e.target === galleryEl) {
-        galleryEl.style.display = 'none';
-      }
+            populateGalleryImages(g.el, imageSets[key] || [], galleryClass);
+            // reset slider metrics & thumb
+            g.slider.reset();
+            // show
+            g.el.style.display = 'flex';
+            g.el.style.visibility = 'visible';
+        });
     });
-  });
+
+    /* ---- Close icons ---- */
+    document.querySelectorAll('.close-img').forEach(closeBtn => {
+        closeBtn.addEventListener('click', () => {
+            const key = closeBtn.dataset.close;
+            const g = gallerySliders[key];
+            if (g) g.el.style.display = 'none';
+        });
+    });
+
+    /* ---- Click outside to close ---- */
+    document.querySelectorAll('.view-picture').forEach(galleryEl => {
+        galleryEl.addEventListener('click', e => {
+            // only close if click backdrop, not inner content
+            if (e.target === galleryEl) {
+                galleryEl.style.display = 'none';
+            }
+        });
+    });
 });

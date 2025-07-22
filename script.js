@@ -157,19 +157,19 @@ document.body.addEventListener('pointermove', syncPointer)
 
 const imageSets = {
     codee: [
-        "assets/Project-image/codee-img/Picture1.png",
-        "assets/Project-image/codee-img/Picture2.png",
-        "assets/Project-image/codee-img/Picture3.png",
-        "assets/Project-image/codee-img/Picture4.png",
-        "assets/Project-image/codee-img/Picture5.png"
+        "assets/Project-Image/codee-img/Picture1.png",
+        "assets/Project-Image/codee-img/Picture2.png",
+        "assets/Project-Image/codee-img/Picture3.png",
+        "assets/Project-Image/codee-img/Picture4.png",
+        "assets/Project-Image/codee-img/Picture5.png"
     ],
     search: [
-        "assets/Project-image/codee-img/Picture3.png",
-        "assets/Project-image/codee-img/Picture4.png",
-        "assets/Project-image/codee-img/Picture5.png",
-        "assets/Project-image/codee-img/Picture3.png",
-        "assets/Project-image/codee-img/Picture4.png",
-        "assets/Project-image/codee-img/Picture5.png"
+        "assets/Project-Image/codee-img/Picture3.png",
+        "assets/Project-Image/codee-img/Picture4.png",
+        "assets/Project-Image/codee-img/Picture5.png",
+        "assets/Project-Image/codee-img/Picture3.png",
+        "assets/Project-Image/codee-img/Picture4.png",
+        "assets/Project-Image/codee-img/Picture5.png"
     ],
     login: [
         "assets/Project-Image/login-img/Image1.png",

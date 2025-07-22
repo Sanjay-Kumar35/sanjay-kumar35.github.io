@@ -154,121 +154,162 @@ const syncPointer = ({ x: pointerX, y: pointerY }) => {
 document.body.addEventListener('pointermove', syncPointer)
 
 //project section for view Image
-
+/* ---------------- Image Sources ---------------- */
 const imageSets = {
-    codee: [
-        "assets/Project-Image/codee-img/Picture1.png",
-        "assets/Project-Image/codee-img/Picture2.png",
-        "assets/Project-Image/codee-img/Picture3.png",
-        "assets/Project-Image/codee-img/Picture4.png",
-        "assets/Project-Image/codee-img/Picture5.png"
-    ],
-    search: [
-        "assets/Project-Image/codee-img/Picture3.png",
-        "assets/Project-Image/codee-img/Picture4.png",
-        "assets/Project-Image/codee-img/Picture5.png",
-        "assets/Project-Image/codee-img/Picture3.png",
-        "assets/Project-Image/codee-img/Picture4.png",
-        "assets/Project-Image/codee-img/Picture5.png"
-    ],
-    login: [
-        "assets/Project-Image/login-img/Image1.png",
-        "assets/Project-Image/login-img/Image2.png",
-        "assets/Project-Image/login-img/Image1.png",
-        "assets/Project-Image/login-img/Image2.png",
-        "assets/Project-Image/login-img/Image1.png",
-        "assets/Project-Image/login-img/Image2.png"
-    ]
+  codee: [
+    "assets/Project-Image/codee-img/Picture1.png",
+    "assets/Project-Image/codee-img/Picture2.png",
+    "assets/Project-Image/codee-img/Picture3.png",
+    "assets/Project-Image/codee-img/Picture4.png",
+    "assets/Project-Image/codee-img/Picture5.png"
+  ],
+  search: [
+    "assets/Project-Image/codee-img/Picture3.png",
+    "assets/Project-Image/codee-img/Picture4.png",
+    "assets/Project-Image/codee-img/Picture5.png",
+    "assets/Project-Image/codee-img/Picture3.png",
+    "assets/Project-Image/codee-img/Picture4.png",
+    "assets/Project-Image/codee-img/Picture5.png"
+  ],
+  login: [
+    "assets/Project-Image/login-img/Image1.png",
+    "assets/Project-Image/login-img/Image2.png",
+    "assets/Project-Image/login-img/Image1.png",
+    "assets/Project-Image/login-img/Image2.png",
+    "assets/Project-Image/login-img/Image1.png",
+    "assets/Project-Image/login-img/Image2.png"
+  ]
+};
+
+/* =========================================================
+   Utility: Populate a gallery's .image-list with <img> tags
+   ========================================================= */
+function populateGalleryImages(galleryEl, images) {
+  const imageList = galleryEl.querySelector('.image-list');
+  imageList.innerHTML = images.map(src => `<img src="${src}" alt="">`).join('');
 }
 
-const viewImg = document.getElementById('view-picture');
-const closeImg = document.getElementById('close-img');
-const imageList = viewImg.querySelector('.image-list');
-const picHead = document.querySelector('.pic-head');
+/* =========================================================
+   Slider setup for ONE gallery element
+   - Adds events (once)
+   - Exposes a reset() function to recalc + sync
+   ========================================================= */
+function makeGallerySlider(galleryEl) {
+  const imageList = galleryEl.querySelector('.image-list');
+  const prevBtn = galleryEl.querySelector('.prev-slide');
+  const nextBtn = galleryEl.querySelector('.next-slide');
+  const sliderScrollbar = galleryEl.querySelector('.slider-scrollbar');
+  const scrollbarThumb = sliderScrollbar.querySelector('.scrollbar-thumb');
 
+  const getMaxScrollLeft = () => imageList.scrollWidth - imageList.clientWidth;
+  const getMaxThumbLeft = () => sliderScrollbar.offsetWidth - scrollbarThumb.offsetWidth;
 
-const showImages = () => (viewImg.style.display = 'flex', viewImg.style.visibility = 'visible');
+  function syncThumbToScroll() {
+    const ratio = imageList.scrollLeft / getMaxScrollLeft();
+    scrollbarThumb.style.left = `${ratio * getMaxThumbLeft()}px`;
+    prevBtn.style.display = imageList.scrollLeft <= 0 ? 'none' : 'block';
+    nextBtn.style.display = imageList.scrollLeft >= getMaxScrollLeft() ? 'none' : 'block';
+  }
 
-const hideImages = () => (viewImg.style.display = 'none');
+  // Scroll by one image
+  function scrollOneImage(direction) {
+    const images = imageList.querySelectorAll('img');
+    if (images.length === 0) return;
 
-function loadImages(images, title, galleryClass) {
-    imageList.innerHTML = images.map(src => `<img src="${src}" alt="" class="${galleryClass}" >`).join("");
-    picHead.textContent = title;
-    initSlider(); // re-initialize slider after loading
+    // Find the index of the first fully visible image
+    let currentIndex = 0;
+    const currentScroll = imageList.scrollLeft;
+    for (let i = 0; i < images.length; i++) {
+      if (images[i].offsetLeft >= currentScroll - 2) {
+        currentIndex = i;
+        break;
+      }
+    }
+
+    // Calculate next index and scroll
+    const newIndex = currentIndex + direction;
+    if (newIndex >= 0 && newIndex < images.length) {
+      imageList.scrollTo({ left: images[newIndex].offsetLeft, behavior: 'smooth' });
+    }
+  }
+
+  // Button click
+  prevBtn.onclick = () => scrollOneImage(-1);
+  nextBtn.onclick = () => scrollOneImage(1);
+
+  // Scrollbar thumb drag
+  scrollbarThumb.onmousedown = (e) => {
+    const startX = e.clientX;
+    const thumbStart = scrollbarThumb.offsetLeft;
+    function onMove(e) {
+      const delta = e.clientX - startX;
+      const newPos = Math.max(0, Math.min(getMaxThumbLeft(), thumbStart + delta));
+      scrollbarThumb.style.left = `${newPos}px`;
+      imageList.scrollLeft = (newPos / getMaxThumbLeft()) * getMaxScrollLeft();
+    }
+    function onUp() {
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+    }
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  };
+
+  imageList.onscroll = syncThumbToScroll;
+  syncThumbToScroll();
+
+  return { reset: () => { imageList.scrollLeft = 0; syncThumbToScroll(); } };
 }
 
-document.querySelectorAll('.btn-img').forEach(btn => {
+/* =========================================================
+   Build slider objects for each gallery once (after DOM ready)
+   ========================================================= */
+const galleryIds = ['codee', 'search', 'login'];
+const gallerySliders = {}; // key -> {el, sliderObj}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  galleryIds.forEach(key => {
+    const galleryEl = document.getElementById('view-picture-' + key);
+    if (!galleryEl) return;
+    gallerySliders[key] = {
+      el: galleryEl,
+      slider: makeGallerySlider(galleryEl)
+    };
+  });
+
+  /* ---- Open (Pictures) buttons inside project cards ---- */
+  document.querySelectorAll('.btn-img').forEach(btn => {
     btn.addEventListener('click', () => {
-        const key = btn.dataset.set;  // codee / search / login
-        const title = btn.dataset.title;
-        let galleryClass = "";
-        if (key === "codee") galleryClass = "gallery1";
-        else if (key === "search") galleryClass = "gallery2";
-        else if (key === "login") galleryClass = "gallery3";
-        if (imageSets[key]) {
-            loadImages(imageSets[key], title, galleryClass);
-            showImages();
-        }
+      const key = btn.dataset.gallery;
+      const g = gallerySliders[key];
+      if (!g) return;
+      // load images
+      populateGalleryImages(g.el, imageSets[key] || []);
+      // reset slider metrics & thumb
+      g.slider.reset();
+      // show
+      g.el.style.display = 'flex';
+      g.el.style.visibility = 'visible';
     });
+  });
+
+  /* ---- Close icons ---- */
+  document.querySelectorAll('.close-img').forEach(closeBtn => {
+    closeBtn.addEventListener('click', () => {
+      const key = closeBtn.dataset.close;
+      const g = gallerySliders[key];
+      if (g) g.el.style.display = 'none';
+    });
+  });
+
+  /* ---- Click outside to close ---- */
+  document.querySelectorAll('.view-picture').forEach(galleryEl => {
+    galleryEl.addEventListener('click', e => {
+      // only close if click backdrop, not inner content
+      if (e.target === galleryEl) {
+        galleryEl.style.display = 'none';
+      }
+    });
+  });
 });
-
-closeImg.addEventListener('click', hideImages);
-window.addEventListener('click', (e) => {
-    if (e.target === viewImg)
-        hideImages();
-});
-
-//scroll x
-const initSlider = () => {
-    const imagelist = document.querySelector(".image-list");
-    const slideButtons = document.querySelectorAll(".slide-button");
-    const sliderScrollbar = document.querySelector(".slider-scrollbar");
-    const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
-    const maxScrollLeft = imagelist.scrollWidth - imagelist.clientWidth;
-
-    scrollbarThumb.addEventListener("mousedown", (e) => {
-        const startX = e.clientX;
-        const thumbPosition = scrollbarThumb.offsetLeft;
-
-        const handleMouseMove = (e) => {
-            const deltaX = e.clientX - startX;
-            const newThumbPosition = thumbPosition + deltaX;
-            const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
-            const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
-            const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
-
-            scrollbarThumb.style.left = `${boundedPosition}px`;
-            imagelist.scrollLeft = scrollPosition;
-
-        }
-        const handleMouseUp = () => {
-            document.removeEventListener("mousemove", handleMouseMove);
-            document.removeEventListener("mouseup", handleMouseUp);
-        }
-        document.addEventListener("mousemove", handleMouseMove);
-        document.addEventListener("mouseup", handleMouseUp);
-    });
-
-    slideButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const direction = button.id === "prev-slide" ? -1 : 1;
-            const scrollAmount = imagelist.clientWidth * direction;
-            imagelist.scrollBy({ left: scrollAmount, behavior: "smooth" });
-        });
-    });
-    const handleSlideButtons = () => {
-        slideButtons[0].style.display = imagelist.scrollLeft <= 0 ? "none" : "block";
-        slideButtons[1].style.display = imagelist.scrollLeft >= maxScrollLeft ? "none" : "block";
-    }
-    const updateScrollThumbPosition = () => {
-        const scrollPosition = imagelist.scrollLeft;
-        const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
-        scrollbarThumb.style.left = `${thumbPosition}px`;
-    }
-    imagelist.addEventListener("scroll", () => {
-        handleSlideButtons();
-        updateScrollThumbPosition();
-    });
-}
-
-window.addEventListener("load", initSlider)

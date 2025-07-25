@@ -289,11 +289,12 @@
 .cnt-container .social-details{
     width: 100%;
     height: auto;
-    padding-left: 20%;
+    padding-left: 15%;
+    font-size:14px;
 }
 .cnt-container .cnt-links #cnt-resume-btn{
     padding: 0%;
-    width: 100%;
+    width: auto;
     margin-top: -5px;
 }
 .cnt-head{
@@ -306,11 +307,12 @@
     margin-top: 20px;
     text-align: center;
     font-size: 14px;
+    font-weight:none;
 }
 .cnt-container i{
     font-size: 20px;
 }
 .cnt-container .cnt-from {
-    width: 90%;
+    width: 95%;
 }
 }

@@ -1,4 +1,8 @@
 @media (max-width: 937px) {
+    .sections{
+        width: 100vw;
+        height: 100vh;
+    }
     .nav-toggle {
         display: flex;
     }
@@ -211,13 +215,13 @@
     }
       .section4{
         font-weight: normal;
-         padding: 45px 45px;
+         padding: 45px;
       }
       .section4 .pro-container .pro1 .pro-buttons i{
         font-size: 15px;
       }
     .section4 .pro-container {
-        width: auto;
+        width: 100%;
         height: auto;
         flex-direction: column;
     }
@@ -269,6 +273,48 @@
         right: 20px;
     }
     .section5 {
-        height: auto;
+        font-size: 14px;
+        width: 100%;
     }
+    .cnt-container{
+        width: 90%;
+        padding: 0px;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    .cnt-container .cnt-links{
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+.cnt-container .social-details{
+    width: 100%;
+    height: auto;
+    padding-left: 20%;
+}
+.cnt-container .cnt-links #cnt-resume-btn{
+    padding: 0%;
+    width: 100%;
+    margin-top: -5px;
+}
+.cnt-head{
+    margin-top: 20px;
+}
+.cnt-head hr {
+    margin: 3px 0px;
+}
+.cnt-head p{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+.cnt-container i{
+    font-size: 22px;
+}
+.cnt-container .cnt-from {
+    width: 90%;
+}
 }

@@ -4,7 +4,6 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    /* font-family: 'Palatino Linotype', serif; */
 }
 
 :root {
@@ -294,7 +293,7 @@ body {
     }
 }
 
-.home-left .social-links {
+.social-links {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -302,7 +301,7 @@ body {
     margin-top: 70px;
 }
 
-.home-left .social-links i {
+.social-links i {
     color: var(--text-color);
     font-size: 25px;
 }
@@ -311,7 +310,7 @@ body {
     transform: scale(1.09);
 }
 
-.home-left .btn-resume {
+.btn-resume {
     display: flex;
     padding: 10px 30px;
     border-radius: 25px;
@@ -684,7 +683,7 @@ svg {
     width: 100%;
     color: var(--text-color);
     background-color: transparent;
-    font-weight: 600;
+    font-weight: bold;
     padding: 50px 55px;
     padding-bottom: 20px;
     border-bottom: 2px solid var(--text-color);
@@ -890,19 +889,22 @@ svg {
     display: none;
 }
 
-.image-list img{
+.image-list img {
     object-fit: contain;
     margin-bottom: 30px;
 }
-.gallery1{
+
+.gallery1 {
     width: 300px;
     height: 500px;
 }
-.gallery2{
+
+.gallery2 {
     width: 400px;
     height: 500px;
 }
-.gallery3{
+
+.gallery3 {
     width: 1000px;
     height: 500px;
     margin-right: 10px;
@@ -968,14 +970,165 @@ svg {
 }
 
 .section5 {
-    height: 100vh;
+    height: auto;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--text-color);
+    scroll-snap-align: start;
+    padding-top: 60px;
+}
+
+.cnt-head {
+    width: 95%;
+    height: 25%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -30px;
+    padding: 10px;
+}
+
+.cnt-head p {
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+.cnt-head hr {
+    height: 5px;
+    width: 100px;
+    border-radius: 4px;
+    border: none;
+    margin-left: -20px;
+    background-color: var(--secondary-color);
+    margin-bottom: 30px;
+}
+
+.cnt-container {
+    width: 95%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.cnt-container .cnt-links,
+.cnt-from {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: transparent;
+    margin-bottom: 30px;
+}
+
+.cnt-container .social-details,
+.cnt-container .social-links,
+.cnt-container .cnt-resume-btn {
+    width: 70%;
+    height: 100%;
+    padding: 20px;
+    background-color: transparent;
+}
+
+.cnt-container .social-details {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+    gap: 25px;
+    font-size: 16px;
+    margin-top: 25px;
+}
+
+.cnt-container .social-links {
+    margin-top: 0px;
+    justify-content: start;
+    margin-left: 50px;
+}
+
+.cnt-container .cnt-links #cnt-resume-btn {
+    width: auto;
+    max-width: 270px;
+    height: 40px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 40px;
+    border-radius: 7px;
+}
+
+.cnt-container i {
+    color: var(--text-color);
+    margin-right: 10px;
+    font-size: 25px;
+}
+
+.cnt-container .cnt-from form {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--secondary-color);
+    backdrop-filter: blur(8px);
+    padding: 25px;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.cnt-container .cnt-from form .input,
+textarea {
+    width: 100%;
+    height: 100%;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 17px;
+    resize: none;
+    outline: none;
+}
+
+.cnt-container .cnt-from form textarea {
+    min-height: 100px;
+}
+
+.cnt-container .cnt-from form textarea::placeholder,
+.cnt-container .cnt-from form input::placeholder {
+    font-size: 16px;
     font-weight: bold;
-    color: white;
-    scroll-snap-align: start;
-    padding-top: 60px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cnt-container .cnt-from form .button {
+    width: 100%;
+    padding: 12px;
+    background-color: white;
+    color: var(--secondary-color);
+    border: 2px solid var(--text-color);
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: background 0.3s;
+}
+
+.cnt-container .cnt-from form .button:hover {
+    background-color: transparent;
+    color: var(--text-color);
+    font-weight: bold;
 }

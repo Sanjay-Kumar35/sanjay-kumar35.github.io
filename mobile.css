@@ -292,7 +292,6 @@
 .cnt-container .social-details{
     width: 100%;
     height: auto;
-<<<<<<< HEAD
 }
 .cnt-container .social-links{
     align-items: start;
@@ -301,14 +300,12 @@
     padding: 3px 0px;
     height: auto;
     width: 100%;
-=======
     padding-left: 15%;
     font-size:14px;
 }
 .cnt-container .cnt-links #cnt-resume-btn{
     padding: 0%;
     width: auto;
->>>>>>> 653cb7435be79c334c042d57dd87459bafa115b9
     margin-top: -5px;
 }
 .cnt-container .cnt-links #cnt-resume-btn{

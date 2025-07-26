@@ -273,7 +273,7 @@
         width: 100%;
     }
     .cnt-container{
-        width: 90%;
+        width: 100%;
         padding: 0px;
         flex-direction: column;
         margin-top: 20px;
@@ -281,7 +281,7 @@
     .cnt-container .cnt-links{
     width: 100%;
     height: auto;
-    padding: 20px;
+    padding: 10px 0px;
     justify-content: center;
     align-items: center;
 }
@@ -292,6 +292,10 @@
 .cnt-container .social-details{
     width: 100%;
     height: auto;
+}
+.cnt-container .social-details p:first-child{
+    white-space: normal;
+    font-size: 13px;
 }
 .cnt-container .cnt-links .cnt-resume-btn{
     padding: 3px 0px;

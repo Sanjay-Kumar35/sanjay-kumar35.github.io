@@ -450,6 +450,7 @@ body {
 .social-links,
 .btn-resume,
 nav,
+#cnt-resume-btn, 
 .pro-buttons p,
 .card {
     -webkit-tap-highlight-color: transparent;

@@ -356,4 +356,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+//Back To Top button
+const backToTop=document.getElementById("backToTop");
+const contactSection=document.getElementById("contact");
+window.addEventListener("scroll",()=>{
+    if(!contactSection) return;
 
+    const contactTop=contactSection.offsetTop;
+    const screenY=window.screenY || window.pageYOffset;
+
+    if(screenY>contactTop){
+        backToTop.style.display="block";
+    }
+    else{
+        backToTop.style.display="none";
+    }
+});
+backToTop.addEventListener("click",()=>{
+    window.scrollTo({top:0,behavior:"smooth"});
+});

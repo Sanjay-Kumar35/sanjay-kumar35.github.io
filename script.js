@@ -179,20 +179,17 @@ const imageSets = {
         "assets/Project-Image/codee-img/Picture20.png",
     ],
     search: [
-        "assets/Project-Image/codee-img/Picture3.png",
-        "assets/Project-Image/codee-img/Picture4.png",
-        "assets/Project-Image/codee-img/Picture5.png",
-        "assets/Project-Image/codee-img/Picture3.png",
-        "assets/Project-Image/codee-img/Picture4.png",
-        "assets/Project-Image/codee-img/Picture5.png"
+        "assets/Project-Image/search-img/Search1.png",
+        "assets/Project-Image/search-img/Search2.png",
+        "assets/Project-Image/search-img/Search3.png",
+        "assets/Project-Image/search-img/Search4.png"
     ],
     login: [
         "assets/Project-Image/login-img/Image1.png",
         "assets/Project-Image/login-img/Image2.png",
-        "assets/Project-Image/login-img/Image1.png",
-        "assets/Project-Image/login-img/Image2.png",
-        "assets/Project-Image/login-img/Image1.png",
-        "assets/Project-Image/login-img/Image2.png"
+        "assets/Project-Image/login-img/Image3.png",
+        "assets/Project-Image/login-img/Image4.png",
+        "assets/Project-Image/login-img/Image5.png",
     ]
 };
 

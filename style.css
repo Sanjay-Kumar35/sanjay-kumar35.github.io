@@ -451,6 +451,7 @@ body {
 .btn-resume,
 nav,
 #cnt-resume-btn, 
+#backToTop,
 .cnt-form .button,
 .pro-buttons p,
 .card {
@@ -904,12 +905,13 @@ svg {
 .gallery2 {
     width: 400px;
     height: 500px;
+    margin-right: 20px;
 }
 
 .gallery3 {
     width: 1000px;
     height: 500px;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .container .slider-scrollbar {

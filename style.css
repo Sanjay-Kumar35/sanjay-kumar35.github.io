@@ -451,6 +451,7 @@ body {
 .btn-resume,
 nav,
 #cnt-resume-btn, 
+.cnt-form .button,
 .pro-buttons p,
 .card {
     -webkit-tap-highlight-color: transparent;
@@ -991,7 +992,7 @@ svg {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: -30px;
+    margin-top: 10px;
     padding: 10px;
 }
 
@@ -1005,7 +1006,7 @@ svg {
     width: 100px;
     border-radius: 4px;
     border: none;
-    margin-left: -20px;
+    margin-left: -25px;
     background-color: var(--secondary-color);
     margin-bottom: 30px;
 }
@@ -1021,7 +1022,7 @@ svg {
 }
 
 .cnt-container .cnt-links,
-.cnt-from {
+.cnt-form {
     width: 50%;
     height: 100%;
     display: flex;
@@ -1074,14 +1075,14 @@ svg {
     font-size: 25px;
 }
 
-.cnt-container .cnt-from form {
+.cnt-container .cnt-form form {
     width: 100%;
     max-width: 500px;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: 20px;
     background-color: var(--secondary-color);
     backdrop-filter: blur(8px);
@@ -1089,8 +1090,10 @@ svg {
     border-radius: 20px;
     margin-top: 30px;
 }
-
-.cnt-container .cnt-from form .input,
+.cnt-container .cnt-form form .form-head{
+    font-size: 24px;
+}
+.cnt-container .cnt-form form .input,
 textarea {
     width: 100%;
     height: 100%;
@@ -1103,18 +1106,18 @@ textarea {
     outline: none;
 }
 
-.cnt-container .cnt-from form textarea {
+.cnt-container .cnt-form form textarea {
     min-height: 100px;
 }
 
-.cnt-container .cnt-from form textarea::placeholder,
-.cnt-container .cnt-from form input::placeholder {
+.cnt-container .cnt-form form textarea::placeholder,
+.cnt-container .cnt-form form input::placeholder {
     font-size: 16px;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
 }
 
-.cnt-container .cnt-from form .button {
+.cnt-container .cnt-form form .button {
     width: 100%;
     padding: 12px;
     background-color: white;
@@ -1122,13 +1125,41 @@ textarea {
     border: 2px solid var(--text-color);
     border-radius: 15px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     transition: background 0.3s;
 }
 
-.cnt-container .cnt-from form .button:hover {
+.cnt-container .cnt-form form .button:active {
     background-color: transparent;
     color: var(--text-color);
     font-weight: bold;
+}
+.popup {
+  position: fixed;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--text-color);
+  color: var(--secondary-color);
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-family: 'Segoe UI', sans-serif;
+  transition: top 0.5s ease;
+  z-index: 1000;
+}
+
+.popup.show {
+  top: 20px;
+}
+
+.popup-icon i{
+  font-size: 20px;
+  color: white;
 }

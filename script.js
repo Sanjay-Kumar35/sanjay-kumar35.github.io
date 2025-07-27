@@ -98,7 +98,7 @@ navLinks.forEach(link => {
         document.getElementById("navright").classList.remove("active");
         document.getElementById("navtoggle").classList.remove("active");
 
-        // e.preventDefault();
+        e.preventDefault();
         const linkRect = e.target.getBoundingClientRect();
         const parentRect = e.target.parentElement.parentElement.getBoundingClientRect();
 
@@ -322,3 +322,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+//Email
+//publickey:"Ff2g0opnlX4IV3wOc"
+//service:service_60lt97o
+//template:template_2oa7z6m
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        emailjs.init("Ff2g0opnlX4IV3wOc");
+        // Debug: check if it's working
+        console.log("Form submitted");
+
+        // Example send using EmailJS
+        emailjs.send("service_60lt97o", "template_2oa7z6m", {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value
+        })
+            .then(function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+                document.getElementById("contact-form").reset();
+
+                const popup = document.getElementById("popup");
+                popup.style.top = "20px";
+                setTimeout(() => {
+                    popup.style.top = "-100px";
+                }, 2000);
+            }, function (error) {
+                console.log("FAILED...", error);
+                alert("Failed to send email.");
+            });
+    });
+});
+
+

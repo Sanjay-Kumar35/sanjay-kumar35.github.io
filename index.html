@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sanjay Kumar Portfolio</title>
+    <title>Sanjay Kumar | Portfolio website</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -617,7 +617,7 @@
                         <i class="fa-solid fa-chevron-right slide-button next-slide" data-gallery="search"></i>
                     </div>
                     <div class="slider-scrollbar">
-                         <div class="scrollbar-track">
+                        <div class="scrollbar-track">
                             <div class="scrollbar-thumb"></div>
                         </div>
                     </div>
@@ -635,7 +635,7 @@
                         <i class="fa-solid fa-chevron-right slide-button next-slide" data-gallery="login"></i>
                     </div>
                     <div class="slider-scrollbar">
-                         <div class="scrollbar-track">
+                        <div class="scrollbar-track">
                             <div class="scrollbar-thumb"></div>
                         </div>
                     </div>
@@ -655,7 +655,7 @@
                         <p><i class="fas fa-phone"></i>+91 63828 21563</p>
                         <p><i class="fas fa-location-dot"></i>Tirupattur, India</p>
                     </div>
-                     <div class="social-link">
+                    <div class="social-link">
                         <a href="https://www.linkedin.com/in/sanjay-kumar-21bb762aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                             target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="https://github.com/Sanjay-Kumar35" target="_blank" title="GitHub"><i
@@ -664,21 +664,30 @@
                                 class="fas fa-envelope"></i></a>
                     </div>
                     <div class="cnt-resume-btn">
-                        <a href="#" download class="btn-resume" id="cnt-resume-btn"><i class="fas fa-file-download"></i>Download Resume</a>
+                        <a href="#" download class="btn-resume" id="cnt-resume-btn"><i
+                                class="fas fa-file-download"></i>Download Resume</a>
                     </div>
                 </div>
-                <div class="cnt-from">
-                    <form action="">
-                        <input type="text" name="name" id="name" class="input" title="Your Name" placeholder="Your Name" required>
-                        <input type="email" name="email" id="email" class="input" placeholder="Your Email" required>
+                <div class="cnt-form" id="cnt-form">
+                    <form id="contact-form">
+                        <h2 class="form-head">Get in touch</h2>
+                        <input type="text" name="name" id="name" class="input" title="Your Name" placeholder="Your Name"
+                            required />
+                        <input type="email" name="email" id="email" class="input" placeholder="Your Email" required />
                         <textarea name="message" id="message" placeholder="Your Message" required></textarea>
-                        <input type="submit" value="Send" class="button">
+                        <button type="submit" class="button">Send&nbsp;&nbsp;<i
+                                class="fa-solid fa-paper-plane"></i></button>
                     </form>
+                </div>
+                <div id="popup" class="popup">
+                    <span class="popup-icon"><i class="fa-solid fa-check"></i></span>
+                    <span id="popup-message">Message sent!</span>
                 </div>
             </div>
         </section>
     </div>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </body>
 
 </html>

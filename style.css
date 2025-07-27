@@ -228,7 +228,6 @@ body {
     font-weight: bold;
     color: white;
     scroll-snap-align: start;
-    border-bottom: 2px solid var(--text-color);
 }
 
 .home-contant {
@@ -381,7 +380,6 @@ body {
     color: white;
     background-color: transparent;
     padding: 90px 0px;
-    border-bottom: 2px solid var(--text-color);
 }
 
 .section2 .abt-content {
@@ -525,7 +523,6 @@ nav,
     color: white;
     background-color: transparent;
     padding: 50px 50px;
-    border-bottom: 2px solid var(--text-color);
 }
 
 .sk-head {
@@ -689,7 +686,6 @@ svg {
     font-weight: bold;
     padding: 50px 55px;
     padding-bottom: 20px;
-    border-bottom: 2px solid var(--text-color);
 }
 
 .section4 .pro-container {

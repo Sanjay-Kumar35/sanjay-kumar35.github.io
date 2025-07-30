@@ -321,9 +321,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //Email
-//publickey:"Ff2g0opnlX4IV3wOc"
-//service:service_60lt97o
-//template:template_2oa7z6m
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("contact-form").addEventListener("submit", function (e) {
         e.preventDefault();

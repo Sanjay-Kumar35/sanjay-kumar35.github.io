@@ -258,6 +258,10 @@
     height: 500px;
     margin-right: 5px;
 }
+.slide-button{
+    width: 30px;
+    height: 30px;
+}
    .slider-wrapper #next-slide{
     visibility: hidden;
    }
